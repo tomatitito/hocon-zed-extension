@@ -1,0 +1,15 @@
+id = "hocon"
+name = "HOCON"
+description = "HOCON (Human-Optimized Config Object Notation) language support"
+version = "0.1.0"
+schema_version = 1
+authors = ["Jens Kouros <jens.kouros@posteo.de>"]
+repository = "https://github.com/tomatitito/hocon-zed-extension"
+
+[grammars.hocon]
+repository = "https://github.com/antosha417/tree-sitter-hocon"
+commit = "main"  # or specific commit hash for stability
+
+[language_servers.hocon-lsp]
+name = "HOCON LSP"
+language = "HOCON"
