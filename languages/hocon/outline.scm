@@ -1,7 +1,8 @@
-; Define what shows up in Zed's outline/symbol view
-(assignment
-  path: (path) @name) @item
+; Objects
+(object) @container
 
-(object) @context
+; Key-value pairs
+(pair) @definition.property
 
-(include) @item
+; Include statements
+(include) @definition.import

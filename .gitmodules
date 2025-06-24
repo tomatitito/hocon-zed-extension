@@ -1,0 +1,3 @@
+[submodule "grammars/hocon"]
+	path = grammars/hocon
+	url = https://github.com/tomatitito/tree-sitter-hocon

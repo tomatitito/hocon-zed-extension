@@ -1,48 +1,37 @@
-; Inherit from the tree-sitter-hocon grammar queries
-; or define custom highlighting rules
-
-; Comments
 (comment) @comment
 
-; Strings
-(string) @string
-(quoted_string) @string
-(unquoted_string) @string
-(triple_quoted_string) @string
+[(null) (true) (false)] @constant.builtin
 
-; Numbers
 (number) @number
+(unit) @keyword
+(string) @string
+(multiline_string) @string
+(string (escape_sequence) @string.escape)
+(unquoted_string) @string
 
-; Booleans and constants
-(boolean) @constant.builtin
-(null) @constant.builtin
+[ "url"
+  "file"
+  "classpath"
+  "required"
+] @keyword
 
-; Keys and properties
-(path) @property
-(identifier) @property
+(include "include" @include)
 
-; References and substitutions
-(reference) @variable
-(substitution
-  "${" @punctuation.special
-  "}" @punctuation.special)
+(substitution ["${" "${?" "}"] @punctuation.special)
+(substitution (_) @field)
 
-; Operators
-["=" ":" "+="] @operator
+(path (_) @field)
+(value [":" "=" "+=" ] @operator)
 
-; Punctuation
-["{" "}"] @punctuation.bracket
-["[" "]"] @punctuation.bracket
-["(" ")"] @punctuation.bracket
-["," "."] @punctuation.delimiter
+[
+ "("
+ ")"
+ "["
+ "]"
+ "{"
+ "}"
+]  @punctuation.bracket
 
-; Keywords
-"include" @keyword.import
-["file" "classpath" "url" "required"] @function.builtin
+[ "," ] @punctuation.delimiter
+(unquoted_path "." @punctuation.delimiter)
 
-; Special HOCON types
-(duration) @number
-(size) @number
-
-; Escape sequences
-(escape_sequence) @string.escape
