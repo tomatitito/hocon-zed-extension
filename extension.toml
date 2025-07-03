@@ -10,13 +10,13 @@ repository = "https://github.com/tomatitito/hocon-zed-extension"
 repository = "https://github.com/tomatitito/tree-sitter-hocon"
 commit = "master"
 
-# [[languages]]
-# name = "hocon"
-# grammar = "hocon"
-# file_types = ["conf", "hocon"]
-# scope = "source.hocon"
-# language_id = "hocon"
-# comment_tokens = ["//", "#", "/*", "*/"]
+[[languages]]
+name = "hocon"
+grammar = "hocon"
+file_types = ["conf", "hocon"]
+scope = "source.hocon"
+language_id = "hocon"
+comment_tokens = ["//", "#", "/*", "*/"]
 
-# Removed language server section for now to focus on syntax highlighting
-# Will add it back when implementing LSP functionality
+[languages.hocon.language_server]
+command = "hocon-language-server"
