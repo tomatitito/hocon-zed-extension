@@ -1,0 +1,1 @@
+Basic syntax highlighting for [HOCON](https://github.com/lightbend/config/tree/main?tab=readme-ov-file#using-hocon-the-json-superset) in [Zed](https://zed.dev).
