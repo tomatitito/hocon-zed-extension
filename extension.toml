@@ -8,15 +8,8 @@ repository = "https://github.com/tomatitito/hocon-zed-extension"
 
 [grammars.hocon]
 repository = "https://github.com/tomatitito/tree-sitter-hocon"
-commit = "master"
+commit = "8958da3c6b7e02db38ed86706a68add87325a7f0"
 
-[[languages]]
-name = "hocon"
-grammar = "hocon"
-file_types = ["conf", "hocon"]
-scope = "source.hocon"
-language_id = "hocon"
-comment_tokens = ["//", "#", "/*", "*/"]
-
-[languages.hocon.language_server]
-command = "hocon-language-server"
+[language_servers.hocon-language-server]
+name = "HOCON Language Server"
+languages = ["hocon"]

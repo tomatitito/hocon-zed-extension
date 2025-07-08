@@ -1,0 +1,18 @@
+// Test HOCON file
+app {
+  name = "test-app"
+  version = "1.0.0"
+  
+  database {
+    host = "localhost"
+    port = 5432
+    // Type 'i' here to test completions
+    
+  }
+  
+  features = [
+    "feature1",
+    "feature2"
+  ]
+}
+

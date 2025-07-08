@@ -1,0 +1,13 @@
+[package]
+name = "hocon-zed-extension"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = [".", "hocon-language-server"]
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.6.0"
