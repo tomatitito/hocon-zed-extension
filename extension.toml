@@ -1,4 +1,4 @@
-id = "hocon"
+id = "hocon-zed-extension"
 name = "HOCON"
 description = "HOCON (Human-Optimized Config Object Notation) language support"
 version = "0.1.0"

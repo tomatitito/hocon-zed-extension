@@ -2,8 +2,10 @@ use zed_extension_api::{self as zed, Result};
 
 struct HoconExtension;
 
+
 impl zed::Extension for HoconExtension {
     fn new() -> Self {
+        eprintln!("[HOCON Extension] Extension initialized!");
         HoconExtension
     }
 
@@ -22,21 +24,19 @@ impl zed::Extension for HoconExtension {
             std::env::current_dir()
         );
 
-        let hurz = worktree.which("dummy-lsp");
+        let path = "/usr/local/bin/dummy-lsp";
+        eprintln!("[HOCON Extension] Language server resolved at: {}", path);
 
-        match hurz {
-            Some(path) => {
-                eprintln!("[HOCON Extension] Language server found at: {}", path);
-                return Ok(zed::Command {
-                    command: path,
-                    args: vec![],
-                    env: vec![],
-                });
-            }
-            None => {
-                eprintln!("[HOCON Extension] ERROR: Language server not found: ");
-                return Err("Language server not found".to_string());
-            }
+        if std::path::Path::new(&path).exists() {
+            eprintln!("[HOCON Extension] Language server binary found.");
+            Ok(zed::Command {
+                command: path.to_string(),
+                args: vec![],
+                env: vec![],
+            })
+        } else {
+            eprintln!("[HOCON Extension] Language server binary not found.");
+            Err("Language server binary not found".into())
         }
 
     }

@@ -2,3 +2,4 @@ name = "HOCON"
 grammar = "hocon"
 path_suffixes = ["conf", "hocon"]
 line_comments = ["//", "#"]
+language_servers = ["hocon-language-server"]
